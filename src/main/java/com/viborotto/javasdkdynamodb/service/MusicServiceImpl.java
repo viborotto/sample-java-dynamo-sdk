@@ -21,7 +21,7 @@ public class MusicServiceImpl implements MusicService {
     @Override
     public Music saveMusic(Music music) {
         Optional<Music> musicItem =
-                musicRepository.findById(music.getId());
+                musicRepository.findMusicById(music.getId());
 
         if(musicItem.isPresent()) {
             throw new RuntimeException("There is already a music with this id");
@@ -35,15 +35,15 @@ public class MusicServiceImpl implements MusicService {
     }
 
     @Override
-    public Optional<Music> findMusicItemById(Long id) {
-        return musicRepository.findById(id);
+    public Optional<Music> findMusicItemById(String id) {
+        return musicRepository.findMusicById(id);
     }
 
 
     @Override
-    public Music updateMusicItem(Long id, Music music) {
+    public Music updateMusicItem(String id, Music music) {
         Optional<Music> updateMusicItem =
-                musicRepository.findById(id);
+                musicRepository.findMusicById(id);
 
         if(updateMusicItem.isEmpty()) {
             throw new RuntimeException("There is no music with this id");
@@ -55,13 +55,13 @@ public class MusicServiceImpl implements MusicService {
     }
 
     @Override
-    public void deleteMusicItem(Long id) {
+    public void deleteMusicItem(String id) {
         Optional<Music> musicItem =
-                musicRepository.findById(id);
+                musicRepository.findMusicById(id);
 
         if(musicItem.isEmpty()) {
             throw new RuntimeException("There is no music with this id");
         }
-        musicRepository.deleteById(id);
+        musicRepository.findMusicById(id);
     }
 }

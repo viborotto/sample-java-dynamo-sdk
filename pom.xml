@@ -49,9 +49,15 @@
             <version>1.11.944</version>
         </dependency>
         <dependency>
-            <groupId>com.github.derjust</groupId>
+            <groupId>io.github.boostchicken</groupId>
             <artifactId>spring-data-dynamodb</artifactId>
-            <version>5.0.2</version>
+            <version>5.2.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-commons</artifactId>
+            <version>2.4.2</version>
         </dependency>
 
 <!--                <dependency>-->
@@ -63,6 +69,14 @@
 <!--                </dependency>-->
 
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>spring-data-dynamo-repository</id>
+            <name>SpringDataDynamoRepository</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </repository>
+    </repositories>
 
     <build>
         <plugins>

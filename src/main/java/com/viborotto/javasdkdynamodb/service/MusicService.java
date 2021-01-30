@@ -8,7 +8,7 @@ public interface MusicService {
 
     Music saveMusic(Music music);
     Iterable<Music> findAllMusicItem();
-    Optional<Music> findMusicItemById(Long id);
-    Music updateMusicItem(Long id, Music music);
-    void deleteMusicItem(Long id);
+    Optional<Music> findMusicItemById(String id);
+    Music updateMusicItem(String id, Music music);
+    void deleteMusicItem(String id);
 }

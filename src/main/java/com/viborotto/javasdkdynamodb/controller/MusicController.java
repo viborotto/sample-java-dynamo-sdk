@@ -31,17 +31,17 @@ public class MusicController {
     }
 
     @GetMapping("/aws/dynamo/musics/{music_id}")
-    public ResponseEntity<?> getMusics(@PathVariable Long music_id) {
+    public ResponseEntity<?> getMusics(@PathVariable String music_id) {
         return ResponseEntity.ok(musicServiceImpl.findMusicItemById(music_id));
     }
 
     @PutMapping("/aws/dynamo/musics/{music_id}")
-    public ResponseEntity<Music> updateMusic(@PathVariable Long music_id, @Valid @RequestBody Music music) {
+    public ResponseEntity<Music> updateMusic(@PathVariable String music_id, @Valid @RequestBody Music music) {
         return ResponseEntity.ok(musicServiceImpl.updateMusicItem(music_id, music));
     }
 
     @DeleteMapping("/aws/dynamo/musics/{music_id}")
-    public void deleteMusic(@PathVariable Long music_id) {
+    public void deleteMusic(@PathVariable String music_id) {
         musicServiceImpl.deleteMusicItem(music_id);
     }
 
